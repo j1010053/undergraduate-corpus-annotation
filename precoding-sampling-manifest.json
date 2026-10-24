@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "seed": 20261024,
+  "sampleSizePerGroup": 15,
+  "pythonVersion": "3.12.14",
+  "samplingUnit": "original query hit; different hits in one document remain eligible",
+  "method": "Each group: sort by original hit number; seed = int(SHA256(UTF8(str(seed)+'|'+groupId)),16); Python random.Random(seed).sample(rows,15) without replacement; retain all when N<=15.",
+  "displayOrder": "configuration group order, then original hit number; browser reload never resamples",
+  "groupSeedIndependence": true,
+  "populationCount": 615,
+  "selectedCount": 35,
+  "groups": [
+    {
+      "id": "written_strict",
+      "label": "書面・嚴格來說",
+      "source": "concordance (1).txt",
+      "sourceSha256": "227acf248ff014ff47140cc4752b4d3c6fb8dbb2a1a80a5976a71a835e8a9de0",
+      "populationCount": 586,
+      "selectedCount": 15,
+      "selection": "random_without_replacement",
+      "seedMaterial": "20261024|written_strict",
+      "derivedSeedSha256": "58cb7b63f91ccc0737ba37224fae57712e127aba0fe46ec010baebe97d3a1b02",
+      "drawOrderSourceHits": [
+        126,
+        116,
+        33,
+        286,
+        579,
+        139,
+        567,
+        333,
+        428,
+        414,
+        179,
+        15,
+        404,
+        348,
+        277
+      ],
+      "displayOrderSourceHits": [
+        15,
+        33,
+        116,
+        126,
+        139,
+        179,
+        277,
+        286,
+        333,
+        348,
+        404,
+        414,
+        428,
+        567,
+        579
+      ],
+      "records": [
+        {
+          "id": "pc-written_strict-a5f4f5e8ad33e4605d47",
+          "sampleNumber": 1,
+          "hit": 15,
+          "textId": "2014_000102",
+          "begin": 6244219,
+          "end": 6244221
+        },
+        {
+          "id": "pc-written_strict-17da1fbb7e4353dc01e7",
+          "sampleNumber": 2,
+          "hit": 33,
+          "textId": "2014_000358",
+          "begin": 30426191,
+          "end": 30426193
+        },
+        {
+          "id": "pc-written_strict-a228d8daa5193d359466",
+          "sampleNumber": 3,
+          "hit": 116,
+          "textId": "2016_000496",
+          "begin": 103074728,
+          "end": 103074730
+        },
+        {
+          "id": "pc-written_strict-cabe5d321d5d0fe73f15",
+          "sampleNumber": 4,
+          "hit": 126,
+          "textId": "2016_000677",
+          "begin": 120809546,
+          "end": 120809548
+        },
+        {
+          "id": "pc-written_strict-709c4bb8abb71d34ce6d",
+          "sampleNumber": 5,
+          "hit": 139,
+          "textId": "2016_000744",
+          "begin": 127861252,
+          "end": 127861254
+        },
+        {
+          "id": "pc-written_strict-ec2c70ba4a65a4238e95",
+          "sampleNumber": 6,
+          "hit": 179,
+          "textId": "2016_001078",
+          "begin": 156929041,
+          "end": 156929043
+        },
+        {
+          "id": "pc-written_strict-01f7b44006f00d119584",
+          "sampleNumber": 7,
+          "hit": 277,
+          "textId": "2017_000794",
+          "begin": 226405308,
+          "end": 226405310
+        },
+        {
+          "id": "pc-written_strict-49357046d5230999622d",
+          "sampleNumber": 8,
+          "hit": 286,
+          "textId": "2017_000814",
+          "begin": 227701033,
+          "end": 227701035
+        },
+        {
+          "id": "pc-written_strict-b78660bd5171d6c00222",
+          "sampleNumber": 9,
+          "hit": 333,
+          "textId": "2017_001248",
+          "begin": 250990654,
+          "end": 250990656
+        },
+        {
+          "id": "pc-written_strict-54804617ab40820b3229",
+          "sampleNumber": 10,
+          "hit": 348,
+          "textId": "2017_001505",
+          "begin": 263409699,
+          "end": 263409701
+        },
+        {
+          "id": "pc-written_strict-af94ebafc65ff822852a",
+          "sampleNumber": 11,
+          "hit": 404,
+          "textId": "2019_000163",
+          "begin": 285186990,
+          "end": 285186992
+        },
+        {
+          "id": "pc-written_strict-0cf0999ed44c79a5e72b",
+          "sampleNumber": 12,
+          "hit": 414,
+          "textId": "2020_000030",
+          "begin": 292353038,
+          "end": 292353040
+        },
+        {
+          "id": "pc-written_strict-bb5d781a1c28f676d59d",
+          "sampleNumber": 13,
+          "hit": 428,
+          "textId": "2020_000101",
+          "begin": 297290752,
+          "end": 297290754
+        },
+        {
+          "id": "pc-written_strict-59aa9eb30f48c22cffd2",
+          "sampleNumber": 14,
+          "hit": 567,
+          "textId": "2024_000171",
+          "begin": 360266447,
+          "end": 360266449
+        },
+        {
+          "id": "pc-written_strict-e1eac02af728ea4374bd",
+          "sampleNumber": 15,
+          "hit": 579,
+          "textId": "2024_000212",
+          "begin": 363093154,
+          "end": 363093156
+        }
+      ]
+    },
+    {
+      "id": "spoken_strict",
+      "label": "口語・嚴格來說",
+      "source": "shuo_s_strict_100.txt",
+      "sourceSha256": "75f0caf432a23d203d60efeabaed25b311a93ddb7518b42cdeb83608ed7cef82",
+      "populationCount": 24,
+      "selectedCount": 15,
+      "selection": "random_without_replacement",
+      "seedMaterial": "20261024|spoken_strict",
+      "derivedSeedSha256": "1bc75d868b403e1c12fe5f28a696d54f07a1c57f0f47f4b7c0828d18e76e5886",
+      "drawOrderSourceHits": [
+        19,
+        6,
+        18,
+        22,
+        5,
+        8,
+        12,
+        11,
+        13,
+        1,
+        15,
+        7,
+        17,
+        24,
+        4
+      ],
+      "displayOrderSourceHits": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        22,
+        24
+      ],
+      "records": [
+        {
+          "id": "pc-spoken_strict-816d7739b023bca924d6",
+          "sampleNumber": 16,
+          "hit": 1,
+          "textId": "20140164",
+          "begin": 550394,
+          "end": 550396
+        },
+        {
+          "id": "pc-spoken_strict-20b5d415007cd8f3f6e3",
+          "sampleNumber": 17,
+          "hit": 4,
+          "textId": "20150756",
+          "begin": 4309728,
+          "end": 4309730
+        },
+        {
+          "id": "pc-spoken_strict-5bc870eafeafffdad797",
+          "sampleNumber": 18,
+          "hit": 5,
+          "textId": "20151028",
+          "begin": 5621936,
+          "end": 5621938
+        },
+        {
+          "id": "pc-spoken_strict-6b7c997b3ec46e9a675f",
+          "sampleNumber": 19,
+          "hit": 6,
+          "textId": "20160042",
+          "begin": 6377991,
+          "end": 6377993
+        },
+        {
+          "id": "pc-spoken_strict-3dd27e65f10d6d02ddf8",
+          "sampleNumber": 20,
+          "hit": 7,
+          "textId": "20160346",
+          "begin": 7327660,
+          "end": 7327662
+        },
+        {
+          "id": "pc-spoken_strict-c1a01ffb67f9bca9cb02",
+          "sampleNumber": 21,
+          "hit": 8,
+          "textId": "20160939",
+          "begin": 9492207,
+          "end": 9492209
+        },
+        {
+          "id": "pc-spoken_strict-332a59b8d384cf209aa1",
+          "sampleNumber": 22,
+          "hit": 11,
+          "textId": "20180222",
+          "begin": 14094835,
+          "end": 14094837
+        },
+        {
+          "id": "pc-spoken_strict-02a62bc9112ceaaa0a2c",
+          "sampleNumber": 23,
+          "hit": 12,
+          "textId": "20180279",
+          "begin": 14314708,
+          "end": 14314710
+        },
+        {
+          "id": "pc-spoken_strict-d85dc1d79d421162ebdd",
+          "sampleNumber": 24,
+          "hit": 13,
+          "textId": "20180728",
+          "begin": 15855488,
+          "end": 15855490
+        },
+        {
+          "id": "pc-spoken_strict-4c2ec2e4dbc5a2f16ca7",
+          "sampleNumber": 25,
+          "hit": 15,
+          "textId": "20191367",
+          "begin": 21049214,
+          "end": 21049216
+        },
+        {
+          "id": "pc-spoken_strict-9b206b3b0bb47522c729",
+          "sampleNumber": 26,
+          "hit": 17,
+          "textId": "20210672",
+          "begin": 28146360,
+          "end": 28146362
+        },
+        {
+          "id": "pc-spoken_strict-7a7f2e5d8d063d384afc",
+          "sampleNumber": 27,
+          "hit": 18,
+          "textId": "20220079",
+          "begin": 30412291,
+          "end": 30412293
+        },
+        {
+          "id": "pc-spoken_strict-f3b993e7a6b50f2e43a3",
+          "sampleNumber": 28,
+          "hit": 19,
+          "textId": "20220371",
+          "begin": 31689889,
+          "end": 31689891
+        },
+        {
+          "id": "pc-spoken_strict-c15d675e89a768cecf23",
+          "sampleNumber": 29,
+          "hit": 22,
+          "textId": "20250775",
+          "begin": 43079512,
+          "end": 43079514
+        },
+        {
+          "id": "pc-spoken_strict-1ebc078549c4a13c3e40",
+          "sampleNumber": 30,
+          "hit": 24,
+          "textId": "20250955",
+          "begin": 44055149,
+          "end": 44055151
+        }
+      ]
+    },
+    {
+      "id": "written_general",
+      "label": "書面・一般來說",
+      "source": "shuo_w_general_100.txt",
+      "sourceSha256": "d8a8c86246e037d3b5656f1c2a7b7d18194838531ee086d7a56705b7a98f9002",
+      "populationCount": 3,
+      "selectedCount": 3,
+      "selection": "all",
+      "seedMaterial": "20261024|written_general",
+      "derivedSeedSha256": "753446cbe1bcf737ac70d88eb1f137cca0828b8ee94d56c6f05b5b861d2f7a72",
+      "drawOrderSourceHits": [
+        1,
+        2,
+        3
+      ],
+      "displayOrderSourceHits": [
+        1,
+        2,
+        3
+      ],
+      "records": [
+        {
+          "id": "pc-written_general-4da08eac439c764c477f",
+          "sampleNumber": 31,
+          "hit": 1,
+          "textId": "2015_000299",
+          "begin": 58181184,
+          "end": 58181186
+        },
+        {
+          "id": "pc-written_general-812989b7584e25c15898",
+          "sampleNumber": 32,
+          "hit": 2,
+          "textId": "2016_000450",
+          "begin": 98863031,
+          "end": 98863033
+        },
+        {
+          "id": "pc-written_general-0f186cbc8d37b37e7d0b",
+          "sampleNumber": 33,
+          "hit": 3,
+          "textId": "2017_001464",
+          "begin": 260574134,
+          "end": 260574136
+        }
+      ]
+    },
+    {
+      "id": "spoken_general",
+      "label": "口語・一般來說",
+      "source": "shuo_s_general_100.txt",
+      "sourceSha256": "0f81b789cdc266154c5d8ae96a0973c2bc9f60a1cc0e9cb596b9871d27b2d85d",
+      "populationCount": 2,
+      "selectedCount": 2,
+      "selection": "all",
+      "seedMaterial": "20261024|spoken_general",
+      "derivedSeedSha256": "9fff1636a48ed5bd1b093884f6cc89dbf7fe715474cb6bf65f31d9c821a18425",
+      "drawOrderSourceHits": [
+        1,
+        2
+      ],
+      "displayOrderSourceHits": [
+        1,
+        2
+      ],
+      "records": [
+        {
+          "id": "pc-spoken_general-425652a4f9e8b19a7044",
+          "sampleNumber": 34,
+          "hit": 1,
+          "textId": "20150854",
+          "begin": 4755671,
+          "end": 4755673
+        },
+        {
+          "id": "pc-spoken_general-b3acbda3e14da7627ed7",
+          "sampleNumber": 35,
+          "hit": 2,
+          "textId": "20170388",
+          "begin": 12434458,
+          "end": 12434460
+        }
+      ]
+    }
+  ],
+  "datasetId": "precoding-20261024-dfe238954000aed5"
+}
