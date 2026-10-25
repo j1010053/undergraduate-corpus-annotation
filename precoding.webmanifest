@@ -1,0 +1,16 @@
+{
+  "id": "./precoding.html",
+  "name": "來說句式 · Pre-coding 語料標註",
+  "short_name": "語料標註",
+  "description": "35 筆固定抽樣語料，支援離線閱讀、自訂標註與備份。",
+  "lang": "zh-Hant",
+  "start_url": "./precoding.html",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#265c47",
+  "background_color": "#f5f4ef",
+  "icons": [
+    {"src": "./precoding-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "./precoding-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

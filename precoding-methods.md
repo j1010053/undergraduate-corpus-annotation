@@ -2,7 +2,7 @@
 
 沿用原 GitHub Pages 的三欄介面：左側選語料，中間讀上下文，右側標註。基本欄位為檢閱狀態、可複選的自由標籤、備註與判斷依據；「自訂欄位」可新增／改名／停用文字欄或分類選單。欄位與標註起始皆留白，不預先判定語用功能。
 
-網站入口：`precoding.html`。預定 GitHub Pages 網址：
+網站入口：`precoding.html`。GitHub Pages 網址：
 https://j1010053.github.io/undergraduate-corpus-annotation/precoding.html
 
 ## 本次抽樣
@@ -48,12 +48,31 @@ seed 與方法共同決定樣本，不能只記錄 seed 而省略母體、排序
 
 ## 程式與重建
 
+### PWA 安裝與離線保存
+
+1. 先連網開啟網站，按「離線使用」，確認顯示「離線已就緒」。第一次會一次快取整批 35 筆的完整語境與標註工具，不需逐筆瀏覽。不安裝也可使用離線快取。
+2. Chrome／Edge 可按網站的安裝按鈕（瀏覽器提供時出現），或使用瀏覽器的安裝選單。iPhone／iPad 請用 Safari 的「分享 → 加入主畫面」。內嵌瀏覽器若無法安裝，請改用一般瀏覽器。
+3. 標註繼續使用原本的 `concordance-review:v1:precoding-20261024-dfe238954000aed5` localStorage；這次更新不改樣本、seed、識別碼或 JSON 備份格式，不重設既有標註。
+4. 「請求持續儲存」使用瀏覽器的 StorageManager API；顯示實際是否獲准，不承諾一定獲准。手動清除網站資料、無痕模式、瀏覽器儲存政策等仍可能影響保存，定期匯出 JSON 才能另存備份。不同瀏覽器／裝置的標註不互通；安裝後若使用不同儲存空間，請匯入原 JSON。
+5. 離線可閱讀、搜尋、標註、自訂欄位及匯入／匯出本機檔案。GitHub 上傳、原始語料庫、下載網站原始檔須連網，網站不自動上傳標註。
+6. 連網重開時會檢查新版本。已開啟的頁面不強制重載；「離線使用 → 檢查快取與更新 → 套用更新並重新開啟」會先保存標註。也可關閉此站的所有分頁／App 視窗，下次再開。更新只更換本站的程式快取，不刪標註。
+7. 下載的含標註 HTML 仍是單一離線檔案；用 `file://` 開啟時不註冊 Service Worker。PWA 安裝需要 HTTPS 或 localhost。
+
+快取機制：Service Worker 預先完整下載 HTML（內含樣本）、manifest 與三個圖示。全部成功且該頁受 worker 控制後，才顯示離線就緒。版本以建置輸入內容的 SHA-256 產生；資源採 cache-first，更新在新 worker 的 install 階段完成全部快取後等待套用。只攔截五個明列的本站資源；不攔截原 `index.html`、GitHub 備份、原始語料庫或其他站點。activate 只刪自己的舊 `concordance-precoding-shell:` 快取，不操作 localStorage。
+
+參考：[MDN：PWA 安裝條件](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)、[Service Worker 生命週期與快取](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)、[持續儲存請求](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/persist)。
+
+### 原始檔
+
 - `sample_corpora.py`：檢核來源與執行分組抽樣。
 - `sampling_config.json`：seed、抽樣上限、四組來源、預期筆數。
 - `source_alignment.py`：原詞與原詞性欄位的精確對齊；不執行語言學分類。
 - `verify_sample.py`：獨立從原始檔驗證 seed 重現、組別筆數、來源 hash、識別碼及原文。
 - `build.py`：將已凍結的 `corpus.json` 嵌入 HTML；不重新抽樣。
 - `reviewer.template.html`：網站介面、標註、匯入匯出邏輯。
+- `pwa.js`：離線狀態、安裝入口、持續儲存請求、由使用者套用更新；建置時內嵌到 HTML。
+- `precoding-sw.template.js`：快取白名單、安裝／更新／訊息處理；建置成 `dist/precoding-sw.js`。
+- `precoding.webmanifest`、`precoding-icon-*.png`：安裝入口與圖示；`make_icons.py` 可重建圖示，不依賴第三方套件。
 
 只重建同一網站（不需要原始匯出檔）：
 
@@ -71,4 +90,4 @@ python build.py
 
 重新抽樣須先明確修改 config；記錄原檔與 Python 版本，以 manifest 的已保存清單為核對基準。這個版本的 `verify_sample.py` 固定檢查本次 35 筆需求，更換母體時也應相應檢查並更新驗證期望。
 
-把 `dist` 中的五個檔案上傳到既有 GitHub Pages 儲存庫根目錄即可新增 `precoding.html`，不需替換原本的 `index.html`。`precoding-source.zip` 只含這 35 筆樣本、程式與方法文件，不含未抽中的完整語料，也不含使用者標註。
+把 `dist` 中的十個檔案一起上傳到既有 GitHub Pages 儲存庫根目錄即可更新 `precoding.html` 與 PWA，不需替換原本的 `index.html`。`precoding-source.zip` 只含這 35 筆樣本、程式與方法文件，不含未抽中的完整語料，也不含使用者標註。`build_report.json` 保存版本、HTML hash 與部署檔案清單。
