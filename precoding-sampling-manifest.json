@@ -1,42 +1,54 @@
 {
-  "version": 1,
+  "version": 2,
+  "datasetId": "precoding-20261024-6a8233f9855a6b65",
   "seed": 20261024,
   "sampleSizePerGroup": 15,
   "pythonVersion": "3.12.14",
-  "samplingUnit": "original query hit; different hits in one document remain eligible",
-  "method": "Each group: sort by original hit number; seed = int(SHA256(UTF8(str(seed)+'|'+groupId)),16); Python random.Random(seed).sample(rows,15) without replacement; retain all when N<=15.",
-  "displayOrder": "configuration group order, then original hit number; browser reload never resamples",
+  "samplingUnit": "original query hit; deduplicate within register by TextID + begin + end + normalized query",
+  "method": "Retain baseline sample; concatenate sources in config order and sort by original hit; remove already selected identities; sample the shortfall without replacement with int(SHA256(UTF8(str(seed)+'|'+groupId)),16).",
+  "displayOrder": "group, source order, original hit; S numbers may shift, stable IDs never shift",
+  "baselineDatasetId": "precoding-20261024-dfe238954000aed5",
+  "baselineSha256": "80cfabac3ce75abdb3276b22c77fc6dc503e4f5a9cd7f8b67db8edcc15759b70",
   "groupSeedIndependence": true,
-  "populationCount": 615,
-  "selectedCount": 35,
+  "populationCount": 5225,
+  "selectedCount": 60,
   "groups": [
     {
       "id": "written_strict",
       "label": "書面・嚴格來說",
-      "source": "concordance (1).txt",
-      "sourceSha256": "227acf248ff014ff47140cc4752b4d3c6fb8dbb2a1a80a5976a71a835e8a9de0",
+      "sources": [
+        {
+          "source": "concordance (1).txt",
+          "sha256": "227acf248ff014ff47140cc4752b4d3c6fb8dbb2a1a80a5976a71a835e8a9de0",
+          "rows": 586
+        }
+      ],
       "populationCount": 586,
       "selectedCount": 15,
-      "selection": "random_without_replacement",
+      "retainedCount": 15,
+      "addedCount": 0,
+      "candidateCount": 571,
+      "selection": "retained_frozen_sample",
       "seedMaterial": "20261024|written_strict",
       "derivedSeedSha256": "58cb7b63f91ccc0737ba37224fae57712e127aba0fe46ec010baebe97d3a1b02",
-      "drawOrderSourceHits": [
-        126,
-        116,
-        33,
-        286,
-        579,
-        139,
-        567,
-        333,
-        428,
-        414,
-        179,
-        15,
-        404,
-        348,
-        277
+      "retainedRecordIds": [
+        "pc-written_strict-a5f4f5e8ad33e4605d47",
+        "pc-written_strict-17da1fbb7e4353dc01e7",
+        "pc-written_strict-a228d8daa5193d359466",
+        "pc-written_strict-cabe5d321d5d0fe73f15",
+        "pc-written_strict-709c4bb8abb71d34ce6d",
+        "pc-written_strict-ec2c70ba4a65a4238e95",
+        "pc-written_strict-01f7b44006f00d119584",
+        "pc-written_strict-49357046d5230999622d",
+        "pc-written_strict-b78660bd5171d6c00222",
+        "pc-written_strict-54804617ab40820b3229",
+        "pc-written_strict-af94ebafc65ff822852a",
+        "pc-written_strict-0cf0999ed44c79a5e72b",
+        "pc-written_strict-bb5d781a1c28f676d59d",
+        "pc-written_strict-59aa9eb30f48c22cffd2",
+        "pc-written_strict-e1eac02af728ea4374bd"
       ],
+      "drawOrderSourceRecords": [],
       "displayOrderSourceHits": [
         15,
         33,
@@ -59,6 +71,7 @@
           "id": "pc-written_strict-a5f4f5e8ad33e4605d47",
           "sampleNumber": 1,
           "hit": 15,
+          "sourceFile": "concordance (1).txt",
           "textId": "2014_000102",
           "begin": 6244219,
           "end": 6244221
@@ -67,6 +80,7 @@
           "id": "pc-written_strict-17da1fbb7e4353dc01e7",
           "sampleNumber": 2,
           "hit": 33,
+          "sourceFile": "concordance (1).txt",
           "textId": "2014_000358",
           "begin": 30426191,
           "end": 30426193
@@ -75,6 +89,7 @@
           "id": "pc-written_strict-a228d8daa5193d359466",
           "sampleNumber": 3,
           "hit": 116,
+          "sourceFile": "concordance (1).txt",
           "textId": "2016_000496",
           "begin": 103074728,
           "end": 103074730
@@ -83,6 +98,7 @@
           "id": "pc-written_strict-cabe5d321d5d0fe73f15",
           "sampleNumber": 4,
           "hit": 126,
+          "sourceFile": "concordance (1).txt",
           "textId": "2016_000677",
           "begin": 120809546,
           "end": 120809548
@@ -91,6 +107,7 @@
           "id": "pc-written_strict-709c4bb8abb71d34ce6d",
           "sampleNumber": 5,
           "hit": 139,
+          "sourceFile": "concordance (1).txt",
           "textId": "2016_000744",
           "begin": 127861252,
           "end": 127861254
@@ -99,6 +116,7 @@
           "id": "pc-written_strict-ec2c70ba4a65a4238e95",
           "sampleNumber": 6,
           "hit": 179,
+          "sourceFile": "concordance (1).txt",
           "textId": "2016_001078",
           "begin": 156929041,
           "end": 156929043
@@ -107,6 +125,7 @@
           "id": "pc-written_strict-01f7b44006f00d119584",
           "sampleNumber": 7,
           "hit": 277,
+          "sourceFile": "concordance (1).txt",
           "textId": "2017_000794",
           "begin": 226405308,
           "end": 226405310
@@ -115,6 +134,7 @@
           "id": "pc-written_strict-49357046d5230999622d",
           "sampleNumber": 8,
           "hit": 286,
+          "sourceFile": "concordance (1).txt",
           "textId": "2017_000814",
           "begin": 227701033,
           "end": 227701035
@@ -123,6 +143,7 @@
           "id": "pc-written_strict-b78660bd5171d6c00222",
           "sampleNumber": 9,
           "hit": 333,
+          "sourceFile": "concordance (1).txt",
           "textId": "2017_001248",
           "begin": 250990654,
           "end": 250990656
@@ -131,6 +152,7 @@
           "id": "pc-written_strict-54804617ab40820b3229",
           "sampleNumber": 10,
           "hit": 348,
+          "sourceFile": "concordance (1).txt",
           "textId": "2017_001505",
           "begin": 263409699,
           "end": 263409701
@@ -139,6 +161,7 @@
           "id": "pc-written_strict-af94ebafc65ff822852a",
           "sampleNumber": 11,
           "hit": 404,
+          "sourceFile": "concordance (1).txt",
           "textId": "2019_000163",
           "begin": 285186990,
           "end": 285186992
@@ -147,6 +170,7 @@
           "id": "pc-written_strict-0cf0999ed44c79a5e72b",
           "sampleNumber": 12,
           "hit": 414,
+          "sourceFile": "concordance (1).txt",
           "textId": "2020_000030",
           "begin": 292353038,
           "end": 292353040
@@ -155,6 +179,7 @@
           "id": "pc-written_strict-bb5d781a1c28f676d59d",
           "sampleNumber": 13,
           "hit": 428,
+          "sourceFile": "concordance (1).txt",
           "textId": "2020_000101",
           "begin": 297290752,
           "end": 297290754
@@ -163,6 +188,7 @@
           "id": "pc-written_strict-59aa9eb30f48c22cffd2",
           "sampleNumber": 14,
           "hit": 567,
+          "sourceFile": "concordance (1).txt",
           "textId": "2024_000171",
           "begin": 360266447,
           "end": 360266449
@@ -171,6 +197,7 @@
           "id": "pc-written_strict-e1eac02af728ea4374bd",
           "sampleNumber": 15,
           "hit": 579,
+          "sourceFile": "concordance (1).txt",
           "textId": "2024_000212",
           "begin": 363093154,
           "end": 363093156
@@ -180,30 +207,39 @@
     {
       "id": "spoken_strict",
       "label": "口語・嚴格來說",
-      "source": "shuo_s_strict_100.txt",
-      "sourceSha256": "75f0caf432a23d203d60efeabaed25b311a93ddb7518b42cdeb83608ed7cef82",
+      "sources": [
+        {
+          "source": "shuo_s_strict_100.txt",
+          "sha256": "75f0caf432a23d203d60efeabaed25b311a93ddb7518b42cdeb83608ed7cef82",
+          "rows": 24
+        }
+      ],
       "populationCount": 24,
       "selectedCount": 15,
-      "selection": "random_without_replacement",
+      "retainedCount": 15,
+      "addedCount": 0,
+      "candidateCount": 9,
+      "selection": "retained_frozen_sample",
       "seedMaterial": "20261024|spoken_strict",
       "derivedSeedSha256": "1bc75d868b403e1c12fe5f28a696d54f07a1c57f0f47f4b7c0828d18e76e5886",
-      "drawOrderSourceHits": [
-        19,
-        6,
-        18,
-        22,
-        5,
-        8,
-        12,
-        11,
-        13,
-        1,
-        15,
-        7,
-        17,
-        24,
-        4
+      "retainedRecordIds": [
+        "pc-spoken_strict-816d7739b023bca924d6",
+        "pc-spoken_strict-20b5d415007cd8f3f6e3",
+        "pc-spoken_strict-5bc870eafeafffdad797",
+        "pc-spoken_strict-6b7c997b3ec46e9a675f",
+        "pc-spoken_strict-3dd27e65f10d6d02ddf8",
+        "pc-spoken_strict-c1a01ffb67f9bca9cb02",
+        "pc-spoken_strict-332a59b8d384cf209aa1",
+        "pc-spoken_strict-02a62bc9112ceaaa0a2c",
+        "pc-spoken_strict-d85dc1d79d421162ebdd",
+        "pc-spoken_strict-4c2ec2e4dbc5a2f16ca7",
+        "pc-spoken_strict-9b206b3b0bb47522c729",
+        "pc-spoken_strict-7a7f2e5d8d063d384afc",
+        "pc-spoken_strict-f3b993e7a6b50f2e43a3",
+        "pc-spoken_strict-c15d675e89a768cecf23",
+        "pc-spoken_strict-1ebc078549c4a13c3e40"
       ],
+      "drawOrderSourceRecords": [],
       "displayOrderSourceHits": [
         1,
         4,
@@ -226,6 +262,7 @@
           "id": "pc-spoken_strict-816d7739b023bca924d6",
           "sampleNumber": 16,
           "hit": 1,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20140164",
           "begin": 550394,
           "end": 550396
@@ -234,6 +271,7 @@
           "id": "pc-spoken_strict-20b5d415007cd8f3f6e3",
           "sampleNumber": 17,
           "hit": 4,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20150756",
           "begin": 4309728,
           "end": 4309730
@@ -242,6 +280,7 @@
           "id": "pc-spoken_strict-5bc870eafeafffdad797",
           "sampleNumber": 18,
           "hit": 5,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20151028",
           "begin": 5621936,
           "end": 5621938
@@ -250,6 +289,7 @@
           "id": "pc-spoken_strict-6b7c997b3ec46e9a675f",
           "sampleNumber": 19,
           "hit": 6,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20160042",
           "begin": 6377991,
           "end": 6377993
@@ -258,6 +298,7 @@
           "id": "pc-spoken_strict-3dd27e65f10d6d02ddf8",
           "sampleNumber": 20,
           "hit": 7,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20160346",
           "begin": 7327660,
           "end": 7327662
@@ -266,6 +307,7 @@
           "id": "pc-spoken_strict-c1a01ffb67f9bca9cb02",
           "sampleNumber": 21,
           "hit": 8,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20160939",
           "begin": 9492207,
           "end": 9492209
@@ -274,6 +316,7 @@
           "id": "pc-spoken_strict-332a59b8d384cf209aa1",
           "sampleNumber": 22,
           "hit": 11,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20180222",
           "begin": 14094835,
           "end": 14094837
@@ -282,6 +325,7 @@
           "id": "pc-spoken_strict-02a62bc9112ceaaa0a2c",
           "sampleNumber": 23,
           "hit": 12,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20180279",
           "begin": 14314708,
           "end": 14314710
@@ -290,6 +334,7 @@
           "id": "pc-spoken_strict-d85dc1d79d421162ebdd",
           "sampleNumber": 24,
           "hit": 13,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20180728",
           "begin": 15855488,
           "end": 15855490
@@ -298,6 +343,7 @@
           "id": "pc-spoken_strict-4c2ec2e4dbc5a2f16ca7",
           "sampleNumber": 25,
           "hit": 15,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20191367",
           "begin": 21049214,
           "end": 21049216
@@ -306,6 +352,7 @@
           "id": "pc-spoken_strict-9b206b3b0bb47522c729",
           "sampleNumber": 26,
           "hit": 17,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20210672",
           "begin": 28146360,
           "end": 28146362
@@ -314,6 +361,7 @@
           "id": "pc-spoken_strict-7a7f2e5d8d063d384afc",
           "sampleNumber": 27,
           "hit": 18,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20220079",
           "begin": 30412291,
           "end": 30412293
@@ -322,6 +370,7 @@
           "id": "pc-spoken_strict-f3b993e7a6b50f2e43a3",
           "sampleNumber": 28,
           "hit": 19,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20220371",
           "begin": 31689889,
           "end": 31689891
@@ -330,6 +379,7 @@
           "id": "pc-spoken_strict-c15d675e89a768cecf23",
           "sampleNumber": 29,
           "hit": 22,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20250775",
           "begin": 43079512,
           "end": 43079514
@@ -338,6 +388,7 @@
           "id": "pc-spoken_strict-1ebc078549c4a13c3e40",
           "sampleNumber": 30,
           "hit": 24,
+          "sourceFile": "shuo_s_strict_100.txt",
           "textId": "20250955",
           "begin": 44055149,
           "end": 44055151
@@ -347,28 +398,104 @@
     {
       "id": "written_general",
       "label": "書面・一般來說",
-      "source": "shuo_w_general_100.txt",
-      "sourceSha256": "d8a8c86246e037d3b5656f1c2a7b7d18194838531ee086d7a56705b7a98f9002",
-      "populationCount": 3,
-      "selectedCount": 3,
-      "selection": "all",
+      "sources": [
+        {
+          "source": "shuo_w_general_100.txt",
+          "sha256": "d8a8c86246e037d3b5656f1c2a7b7d18194838531ee086d7a56705b7a98f9002",
+          "rows": 3
+        },
+        {
+          "source": "shuo_w_general_100_nonsep.txt",
+          "sha256": "148a3c4d64ba2777615ca7de0cbd4fb8d31e05472291f5cd30062d4d7f55f19b",
+          "rows": 3994
+        }
+      ],
+      "populationCount": 3997,
+      "selectedCount": 15,
+      "retainedCount": 3,
+      "addedCount": 12,
+      "candidateCount": 3994,
+      "selection": "retained_and_random_topup",
       "seedMaterial": "20261024|written_general",
       "derivedSeedSha256": "753446cbe1bcf737ac70d88eb1f137cca0828b8ee94d56c6f05b5b861d2f7a72",
-      "drawOrderSourceHits": [
-        1,
-        2,
-        3
+      "retainedRecordIds": [
+        "pc-written_general-4da08eac439c764c477f",
+        "pc-written_general-812989b7584e25c15898",
+        "pc-written_general-0f186cbc8d37b37e7d0b"
+      ],
+      "drawOrderSourceRecords": [
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 44
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 3
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 2242
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 3169
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 2713
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 564
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 2488
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 3215
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 3804
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 3688
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 158
+        },
+        {
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "sourceHit": 3433
+        }
       ],
       "displayOrderSourceHits": [
         1,
         2,
-        3
+        3,
+        3,
+        44,
+        158,
+        564,
+        2242,
+        2488,
+        2713,
+        3169,
+        3215,
+        3433,
+        3688,
+        3804
       ],
       "records": [
         {
           "id": "pc-written_general-4da08eac439c764c477f",
           "sampleNumber": 31,
           "hit": 1,
+          "sourceFile": "shuo_w_general_100.txt",
           "textId": "2015_000299",
           "begin": 58181184,
           "end": 58181186
@@ -377,6 +504,7 @@
           "id": "pc-written_general-812989b7584e25c15898",
           "sampleNumber": 32,
           "hit": 2,
+          "sourceFile": "shuo_w_general_100.txt",
           "textId": "2016_000450",
           "begin": 98863031,
           "end": 98863033
@@ -385,49 +513,356 @@
           "id": "pc-written_general-0f186cbc8d37b37e7d0b",
           "sampleNumber": 33,
           "hit": 3,
+          "sourceFile": "shuo_w_general_100.txt",
           "textId": "2017_001464",
           "begin": 260574134,
           "end": 260574136
+        },
+        {
+          "id": "pc-written_general-9df8085b877d3a3f8ee3",
+          "sampleNumber": 34,
+          "hit": 3,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2014_000003",
+          "begin": 229916,
+          "end": 229916
+        },
+        {
+          "id": "pc-written_general-60020f1171122035e24b",
+          "sampleNumber": 35,
+          "hit": 44,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2014_000022",
+          "begin": 1414869,
+          "end": 1414869
+        },
+        {
+          "id": "pc-written_general-c4e952b84578af0daa79",
+          "sampleNumber": 36,
+          "hit": 158,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2014_000313",
+          "begin": 26891099,
+          "end": 26891099
+        },
+        {
+          "id": "pc-written_general-1ae14fb41981ff8fc3bf",
+          "sampleNumber": 37,
+          "hit": 564,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2015_000238",
+          "begin": 51733474,
+          "end": 51733474
+        },
+        {
+          "id": "pc-written_general-f35dd98f83b6c637c642",
+          "sampleNumber": 38,
+          "hit": 2242,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2017_001062",
+          "begin": 242441636,
+          "end": 242441636
+        },
+        {
+          "id": "pc-written_general-ac6512981f18250fa276",
+          "sampleNumber": 39,
+          "hit": 2488,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2017_001500",
+          "begin": 262931515,
+          "end": 262931515
+        },
+        {
+          "id": "pc-written_general-c3e3fba9ae345230e138",
+          "sampleNumber": 40,
+          "hit": 2713,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2019_000143",
+          "begin": 283871950,
+          "end": 283871950
+        },
+        {
+          "id": "pc-written_general-0ded488ee1af270d28eb",
+          "sampleNumber": 41,
+          "hit": 3169,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2023_000091",
+          "begin": 305685009,
+          "end": 305685009
+        },
+        {
+          "id": "pc-written_general-7e030fc6c0cd97c1778b",
+          "sampleNumber": 42,
+          "hit": 3215,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2023_000111",
+          "begin": 307952121,
+          "end": 307952121
+        },
+        {
+          "id": "pc-written_general-797895570578438704c3",
+          "sampleNumber": 43,
+          "hit": 3433,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2023_000361",
+          "begin": 323570677,
+          "end": 323570677
+        },
+        {
+          "id": "pc-written_general-ab93d6378d9e70f92a45",
+          "sampleNumber": 44,
+          "hit": 3688,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2023_000627",
+          "begin": 345281844,
+          "end": 345281844
+        },
+        {
+          "id": "pc-written_general-0082cc3775909cfd017d",
+          "sampleNumber": 45,
+          "hit": 3804,
+          "sourceFile": "shuo_w_general_100_nonsep.txt",
+          "textId": "2024_000029",
+          "begin": 351959062,
+          "end": 351959062
         }
       ]
     },
     {
       "id": "spoken_general",
       "label": "口語・一般來說",
-      "source": "shuo_s_general_100.txt",
-      "sourceSha256": "0f81b789cdc266154c5d8ae96a0973c2bc9f60a1cc0e9cb596b9871d27b2d85d",
-      "populationCount": 2,
-      "selectedCount": 2,
-      "selection": "all",
+      "sources": [
+        {
+          "source": "shuo_s_general_100.txt",
+          "sha256": "0f81b789cdc266154c5d8ae96a0973c2bc9f60a1cc0e9cb596b9871d27b2d85d",
+          "rows": 2
+        },
+        {
+          "source": "shuo_s_general_100_nonsep.txt",
+          "sha256": "2caf79cfb21c019811f934be2de13f28550c99a3ce2f585770876baf3c02f3d5",
+          "rows": 616
+        }
+      ],
+      "populationCount": 618,
+      "selectedCount": 15,
+      "retainedCount": 2,
+      "addedCount": 13,
+      "candidateCount": 616,
+      "selection": "retained_and_random_topup",
       "seedMaterial": "20261024|spoken_general",
       "derivedSeedSha256": "9fff1636a48ed5bd1b093884f6cc89dbf7fe715474cb6bf65f31d9c821a18425",
-      "drawOrderSourceHits": [
-        1,
-        2
+      "retainedRecordIds": [
+        "pc-spoken_general-425652a4f9e8b19a7044",
+        "pc-spoken_general-b3acbda3e14da7627ed7"
+      ],
+      "drawOrderSourceRecords": [
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 89
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 387
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 478
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 530
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 523
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 23
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 413
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 354
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 182
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 247
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 189
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 466
+        },
+        {
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "sourceHit": 468
+        }
       ],
       "displayOrderSourceHits": [
         1,
-        2
+        2,
+        23,
+        89,
+        182,
+        189,
+        247,
+        354,
+        387,
+        413,
+        466,
+        468,
+        478,
+        523,
+        530
       ],
       "records": [
         {
           "id": "pc-spoken_general-425652a4f9e8b19a7044",
-          "sampleNumber": 34,
+          "sampleNumber": 46,
           "hit": 1,
+          "sourceFile": "shuo_s_general_100.txt",
           "textId": "20150854",
           "begin": 4755671,
           "end": 4755673
         },
         {
           "id": "pc-spoken_general-b3acbda3e14da7627ed7",
-          "sampleNumber": 35,
+          "sampleNumber": 47,
           "hit": 2,
+          "sourceFile": "shuo_s_general_100.txt",
           "textId": "20170388",
           "begin": 12434458,
           "end": 12434460
+        },
+        {
+          "id": "pc-spoken_general-37705da80008bf61e9d1",
+          "sampleNumber": 48,
+          "hit": 23,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20150097",
+          "begin": 2161965,
+          "end": 2161965
+        },
+        {
+          "id": "pc-spoken_general-014c6495e6aa2e9025e0",
+          "sampleNumber": 49,
+          "hit": 89,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20151095",
+          "begin": 6028676,
+          "end": 6028676
+        },
+        {
+          "id": "pc-spoken_general-c8a1017e592614c2f413",
+          "sampleNumber": 50,
+          "hit": 182,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20170060",
+          "begin": 11684526,
+          "end": 11684526
+        },
+        {
+          "id": "pc-spoken_general-70a5e2d9734422d8344a",
+          "sampleNumber": 51,
+          "hit": 189,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20170388",
+          "begin": 12436269,
+          "end": 12436269
+        },
+        {
+          "id": "pc-spoken_general-b50b14f0ecd47e2c68cf",
+          "sampleNumber": 52,
+          "hit": 247,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20180694",
+          "begin": 15714148,
+          "end": 15714148
+        },
+        {
+          "id": "pc-spoken_general-41535dc6b6f06f85642d",
+          "sampleNumber": 53,
+          "hit": 354,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20200889",
+          "begin": 23863411,
+          "end": 23863411
+        },
+        {
+          "id": "pc-spoken_general-569e0ebc3da8c7084e74",
+          "sampleNumber": 54,
+          "hit": 387,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20210040",
+          "begin": 26357733,
+          "end": 26357733
+        },
+        {
+          "id": "pc-spoken_general-0736ec5b71042a9a4178",
+          "sampleNumber": 55,
+          "hit": 413,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20210863",
+          "begin": 28773764,
+          "end": 28773764
+        },
+        {
+          "id": "pc-spoken_general-542a505ad22bd401573b",
+          "sampleNumber": 56,
+          "hit": 466,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20220222",
+          "begin": 31107178,
+          "end": 31107178
+        },
+        {
+          "id": "pc-spoken_general-59f83af4083f7e63e70f",
+          "sampleNumber": 57,
+          "hit": 468,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20220231",
+          "begin": 31143127,
+          "end": 31143127
+        },
+        {
+          "id": "pc-spoken_general-ff5a8d560585b5427cf8",
+          "sampleNumber": 58,
+          "hit": 478,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20220835",
+          "begin": 32788058,
+          "end": 32788058
+        },
+        {
+          "id": "pc-spoken_general-988200e8dffde83e30cd",
+          "sampleNumber": 59,
+          "hit": 523,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20240011",
+          "begin": 36801899,
+          "end": 36801899
+        },
+        {
+          "id": "pc-spoken_general-24e59d8ac3387a16013c",
+          "sampleNumber": 60,
+          "hit": 530,
+          "sourceFile": "shuo_s_general_100_nonsep.txt",
+          "textId": "20240178",
+          "begin": 37499052,
+          "end": 37499052
         }
       ]
     }
-  ],
-  "datasetId": "precoding-20261024-dfe238954000aed5"
+  ]
 }

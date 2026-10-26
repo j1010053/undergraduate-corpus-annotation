@@ -1,6 +1,6 @@
 "use strict";
 // Only this app's shell is cached. Annotations stay in the existing localStorage key.
-const VERSION = "c7b307c4305d6659";
+const VERSION = "fe0a5a9d4ab1950d";
 const PREFIX = "concordance-precoding-shell:";
 const CACHE = PREFIX + VERSION;
 const ASSETS = ["precoding.html", "precoding.webmanifest", "precoding-icon-192.png", "precoding-icon-512.png", "precoding-icon-180.png"]

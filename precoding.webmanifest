@@ -2,7 +2,7 @@
   "id": "./precoding.html",
   "name": "來說句式 · Pre-coding 語料標註",
   "short_name": "語料標註",
-  "description": "35 筆固定抽樣語料，支援離線閱讀、自訂標註與備份。",
+  "description": "固定 seed 分組抽樣語料，支援離線閱讀、自訂標註與備份。",
   "lang": "zh-Hant",
   "start_url": "./precoding.html",
   "scope": "./",

@@ -4,163 +4,44 @@
       "source": "concordance (1).txt",
       "sha256": "227acf248ff014ff47140cc4752b4d3c6fb8dbb2a1a80a5976a71a835e8a9de0",
       "rows": 586,
-      "textIds": 396,
-      "alignmentEvents": [
-        {
-          "hit": 42,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "DDDDDDDDC"
-        },
-        {
-          "hit": 42,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "CC"
-        },
-        {
-          "hit": 53,
-          "field": "Context after",
-          "reason": "missing_pos",
-          "word": "張"
-        },
-        {
-          "hit": 103,
-          "field": "Context before",
-          "tagged_index": 15,
-          "raw_tagged": "_",
-          "reason": "empty_surface_artifact"
-        },
-        {
-          "hit": 245,
-          "field": "Context before",
-          "tagged_index": 378,
-          "raw_tagged": "_",
-          "reason": "empty_surface_artifact"
-        },
-        {
-          "hit": 278,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "é"
-        },
-        {
-          "hit": 282,
-          "field": "Context after",
-          "tagged_index": 128,
-          "raw_tagged": "_",
-          "reason": "empty_surface_artifact"
-        },
-        {
-          "hit": 295,
-          "field": "Context after",
-          "tagged_index": 204,
-          "raw_tagged": "_",
-          "reason": "empty_surface_artifact"
-        },
-        {
-          "hit": 295,
-          "field": "Context after",
-          "reason": "missing_pos",
-          "word": ":/"
-        },
-        {
-          "hit": 420,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "P"
-        },
-        {
-          "hit": 436,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "2017"
-        },
-        {
-          "hit": 436,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "2019"
-        },
-        {
-          "hit": 436,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "1"
-        },
-        {
-          "hit": 437,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "2018"
-        },
-        {
-          "hit": 437,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "8"
-        },
-        {
-          "hit": 437,
-          "field": "Context after",
-          "reason": "missing_pos",
-          "word": "3"
-        },
-        {
-          "hit": 475,
-          "field": "Context before",
-          "reason": "missing_pos",
-          "word": "第"
-        },
-        {
-          "hit": 552,
-          "field": "Context before",
-          "tagged_index": 318,
-          "raw_tagged": "_FW",
-          "reason": "empty_surface_artifact"
-        }
-      ],
-      "equivalentExports": [
-        {
-          "source": "shuo_w_strict_10.txt",
-          "sha256": "529fdbfd50251d19f71a34c51e47fc0abd0f31ad563d0f9b5bc031a1b580ecae",
-          "rows": 586,
-          "same_hit_inventory": true,
-          "added_to_population": false
-        },
-        {
-          "source": "concordance (2).txt",
-          "sha256": "b0ce15739f61aded7a654db1f90a2413cfa9a7cd3bf91dff460a63a7febdda16",
-          "rows": 586,
-          "same_hit_inventory": true,
-          "added_to_population": false
-        }
-      ]
+      "alignmentEventCounts": {
+        "missing_pos": 13,
+        "empty_surface_artifact": 5
+      }
     },
     {
       "source": "shuo_s_strict_100.txt",
       "sha256": "75f0caf432a23d203d60efeabaed25b311a93ddb7518b42cdeb83608ed7cef82",
       "rows": 24,
-      "textIds": 24,
-      "alignmentEvents": [],
-      "equivalentExports": []
+      "alignmentEventCounts": {}
     },
     {
       "source": "shuo_w_general_100.txt",
       "sha256": "d8a8c86246e037d3b5656f1c2a7b7d18194838531ee086d7a56705b7a98f9002",
       "rows": 3,
-      "textIds": 3,
-      "alignmentEvents": [],
-      "equivalentExports": []
+      "alignmentEventCounts": {}
+    },
+    {
+      "source": "shuo_w_general_100_nonsep.txt",
+      "sha256": "148a3c4d64ba2777615ca7de0cbd4fb8d31e05472291f5cd30062d4d7f55f19b",
+      "rows": 3994,
+      "alignmentEventCounts": {
+        "missing_pos": 30,
+        "empty_surface_artifact": 10
+      }
     },
     {
       "source": "shuo_s_general_100.txt",
       "sha256": "0f81b789cdc266154c5d8ae96a0973c2bc9f60a1cc0e9cb596b9871d27b2d85d",
       "rows": 2,
-      "textIds": 2,
-      "alignmentEvents": [],
-      "equivalentExports": []
+      "alignmentEventCounts": {}
+    },
+    {
+      "source": "shuo_s_general_100_nonsep.txt",
+      "sha256": "2caf79cfb21c019811f934be2de13f28550c99a3ce2f585770876baf3c02f3d5",
+      "rows": 616,
+      "alignmentEventCounts": {}
     }
   ],
-  "populationCount": 615
+  "scope": "Source names, hashes, row counts and alignment-event counts only; detailed diagnostics remain local."
 }
